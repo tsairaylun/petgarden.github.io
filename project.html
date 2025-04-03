@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>寵物園</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+        <button class="menu">&#9766;</button>
+        <h1>寵物園</h1>    
+        <nav>
+        <ul>
+            <li><a href="#inf1" onclick="updatePage('inf1')">最新消息</a></li>
+            <li><a href="#slogan" onclick="updatePage('slogan')">關於我們</a></li>
+            <li><a href="#shop" onclick="updatePage('shop')">門市據點</a></li>
+            <li><a href="#newsletter" onclick="updatePage('newsletter')">聯絡我們</a></li>
+        </ul>
+        </nav>
+        </header>
+        <main>
+        
+        <section id="inf1">
+        <h4>2024 寵物園週年慶【好康活動】</h4>
+        <p>單筆消費滿$1500贈抽獎卷</p>
+        </section>
+        
+
+        <section class="news">
+        <h2>傳遞幸福與快樂的美好生活</h2>
+        <p></p>
+        <p><a href="#inf2">瞭解更多</a></p>
+        </section>
+        <section id="inf2">
+            <h4>服務內容</h4>
+            <br>
+            <p>各大品牌商品/週邊，一應俱全。
+                <br>提供寵物住宿、安親、美容包月等服務。
+                <br>部分門市提供24小時全年無休不打烊服務。
+                <br>結合動物醫院，提供寵物貼心全方位服務。
+                <br>專業寵物人員諮詢與飼養知識解說。
+            </p>
+        </section>
+        
+        <section class="slogan" id ="slogan">
+        <blockquote> 
+            <h3 style="color: rgb(210, 33, 33)">使命: "倡導終生不棄養" </h3>
+            <br> 讓愛不是口號，遇見牠是最幸福的事
+        </blockquote>
+        </section>
+
+        <section class="shop" id="shop">
+
+        <img src="images/shopper.png" alt="寵物園嘉大店">
+        
+        <div class="info">
+        <h2>8月1日嘉大旗艦店隆重開幕</h2>
+        <p>經營溫馨、體貼、專業、平價的水族商品消費環境，用熱忱誠摯的心對待每位客戶，
+            <br>即日加 LINE 好友，針對每位客人不同需求，提供各項完善的服務
+        </p>
+        </div>
+
+        </section>
+        <h4 class="text">人氣物種</h4>
+        <section class="product">
+            
+            <div >
+                <img src="images/fish1.png" alt="眼斑海葵魚(公子小丑)">
+                <h3>眼斑海葵魚(公子小丑)</h3>
+                
+            </div>
+            <div>
+                <img src="images/dog.jpg" alt="柴犬">
+                <h3>柴犬</h3>
+                
+            </div>
+            <div>
+                <img src="images/cat.jpg" alt="曼赤肯">
+                <h3>曼赤肯</h3>
+                
+            </div>
+        </section>
+
+        <section class="newsletter" id="newsletter">
+            <section class ="contact">
+            <p>歡迎訂閱寵物園電子報，可不定期收到限定優惠!</p>
+            
+            <form >
+                <input type="email" id="mail" placeholder="請輸入您的 Email" required>
+                <button onclick="submitComment()" type="submit">送出</button>
+            </form>
+            </section>
+            <p >若您有任何問題，請通過以下方式聯絡我們：
+                <br>Email: contact@website.com
+                <br>電話: 123-456-7890
+            </p>
+        </section>
+
+        </main>
+        <footer>
+            <p>Copyright @ 2023 寵物園 ALL Right Reserved.</p>
+        </footer>
+        <script>
+            function submitComment() {
+                let mail =document.getElementById("mail").value;
+                mail.innerText = "";
+                window.alert("感謝訂閱");
+            };
+
+            window.onload = function() {
+                
+            };
+            window.onhashchange = function() {
+                updatePage(location.hash);
+            };
+            function updatePage(hash) {
+                document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+                }); 
+            
+                const page =  window.location.hash.substring(1) || 'inf1';;
+                const section = document.getElementById(page);
+                
+                if (section ) {
+                    section.classList.add('active');
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+               
+            };
+           
+        </script>
+    </body>
+</html>
